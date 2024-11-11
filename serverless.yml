@@ -1,0 +1,18 @@
+service: cityserverless
+
+frameworkVersion: "4.4.7"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  getWeather:
+    handler: handler.cityService
+    events:
+      - http:
+          path: city-weather
+          method: get
+          
+#plugins:
+ # - serverless-offline
